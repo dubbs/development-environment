@@ -10,4 +10,8 @@ install modules
 	bundle install
 
 	# install deps from puppet file
-	librarian-puppet init
+	librarian-puppet install --path puppet/modules
+
+reprovision
+
+	vagrant reload --provision
