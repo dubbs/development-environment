@@ -3,14 +3,14 @@ class { 'apt':
 }
 
 class { 'apache':
-	# prevent creating of default site
+	# prevent creating of default site, so docroot can be set
 	default_vhost => false,
 	require => Class['apt']
 }
 
 apache::vhost { 'localhost':
   port    => '80',
-  docroot => '/vagrant/htdocs',
+  docroot => '/vagrant/public',
 }
 
 class { 'php':
