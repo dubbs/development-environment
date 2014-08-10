@@ -1,18 +1,11 @@
-class { 'apt':
-  always_apt_update    => true
-}
-
+# like `include apache` but allows configuration
 class { 'apache':
-	# prevent creating of default site, so docroot can be set
-	default_vhost => false,
-	require => Class['apt']
+	# do not want default vhost to hijack requests, create another
+  default_vhost        => false,
 }
 
-apache::vhost { 'localhost':
+apache::vhost { 'default-dev':
   port    => '80',
-  docroot => '/vagrant/public',
-}
-
-class { 'php':
-	require => Class['apache']
+  docroot => '/vagrant/public_html',
+  logroot => '/vagrant/logs',
 }
