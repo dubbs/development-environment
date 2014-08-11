@@ -5,6 +5,7 @@ forge "https://forgeapi.puppetlabs.com"
 
 mod 'puppetlabs-apt'
 mod 'puppetlabs-apache'
+mod 'puppetlabs-mysql'
 mod 'example42-php'
 
 # use dependencies defined in metadata.json
